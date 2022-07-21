@@ -1,4 +1,4 @@
-// Toggle Menu //
+// Toggle mobile menu //
 
 function displayMenu() {
     const menu = document.getElementById("primary-navigation");
@@ -20,5 +20,45 @@ function displayMenu() {
         state.setAttribute("aria-expanded", false);
         footer.style.background = "";
         footer.style.opacity = "";
+    }
+}
+
+//     Bookmark    //
+
+const bookmarkSpan = document.getElementById("bookmarkSpan");
+
+if(window.matchMedia("(min-width:786px)").matches) {
+    bookmarkSpan.classList.remove("sr-only");
+  } else {
+    bookmarkSpan.classList.add("sr-only");
+  }
+
+function resizing() {
+if("matchMedia" in window) {
+  if(window.matchMedia("(min-width:786px)").matches) {
+        bookmarkSpan.classList.remove("sr-only");
+    } else {
+        bookmarkSpan.classList.add("sr-only");
+    }
+    }
+}
+window.addEventListener('resize', resizing, false);
+
+
+function bookmark() {
+    const bookmarkBtn = document.getElementById("bookmark-btn-svg");
+    const bookmarkBtnBackground = document.getElementById("bookmark-btn");
+    const bookmarkAria = document.querySelector(".bookmark-btn");
+
+    bookmarkBtn.classList.toggle("bookmark-btn-svg");
+    bookmarkBtnBackground.classList.toggle("bookmark-btn-background");
+    bookmarkSpan.classList.toggle("bookmark-btn-text");
+
+    if (bookmarkAria.getAttribute("aria-selected") === "false") {
+        bookmarkSpan.innerHTML = "Bookmarked";
+        bookmarkAria.setAttribute("aria-selected", true);
+    } else {
+        bookmarkSpan.innerHTML = "Bookmark";
+        bookmarkAria.setAttribute("aria-selected", false);
     }
 }

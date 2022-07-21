@@ -11,40 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Frontend Mentor | Crowdfunding product page</title>
-
-
 </head>
 
 <body>
-
     <header id="primary-header" class="primary-header flex">
-
         <img class="logo" src="./images/logo.svg" alt="logo crowdfund">
-
         <button onclick="displayMenu()" class="mobile-nav-toggle" data-visible="false"
             aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only"
                 role="presentation">Menu</span>
         </button>
         <nav>
             <ul id="primary-navigation" class="primary-navigation flex">
-                <li><a href="#">About</a>
-                    <hr class="separator">
-                <li><a href="#">Discover</a>
-                    <hr class="separator">
-                <li><a href="#">Get Started</a>
+                <li><a href="#">About</a></li>
+                <hr class="separator">
+                <li><a href="#">Discover</a></li>
+                <hr class="separator">
+                <li><a href="#">Get Started</a></li>
             </ul>
         </nav>
     </header>
     <main class="main">
-
-        <div>
-
-
-            Mastercraft Bamboo Monitor Riser
-            A beautiful & handcrafted monitor stand to reduce neck and eye strain.
-
-            Back this project
-            Bookmark
+        <section class="heading-section">
+            <img class="mastercraft" src="./images/logo-mastercraft.svg" alt="Mastercraft logo">
+            <h1 class="fs-800">Mastercraft Bamboo Monitor Riser</h1>
+            <p class="fs-400 text-gray">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
+            <div class="flex">
+                <button class="back-btn fs-600">Back this project</button>
+                <button id="bookmark-btn" class="bookmark-btn" onclick="bookmark()" aria-selected="false"><img id="bookmark-btn-svg" src="./images/icon-bookmark.svg" alt="icon-bookmark"><span id="bookmarkSpan" class="sr-only fs-600 text-gray">Bookmark</span></button>
+            </div>
+        </section>
 
             $89,914 of $100,000 backed
             5,007 total backers
@@ -136,7 +131,7 @@
 
             <!-- Success modal end -->
 
-        </div>
+        
 
     </main>
     <footer class="attribution">

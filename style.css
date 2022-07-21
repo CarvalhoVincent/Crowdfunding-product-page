@@ -35,7 +35,6 @@
     }
 }
 
-
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
@@ -80,12 +79,18 @@ body {
     background-size: contain;
     display: grid;
     grid-template-rows: min-content min-content 1fr;
-
     overflow-x: hidden;
 
 }
 
-@media (min-width: 745px) {
+@media (max-width: 375px) {
+    body {
+        background-size: auto;
+        background-position: top bottom;
+    }
+}
+
+@media (min-width: 786px) {
     body {
         background-image: url(./images/image-hero-desktop.jpg);
     }
@@ -185,15 +190,16 @@ select {
     padding-inline: 1.5rem;
     height: 8rem;
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
-    margin-bottom: 5.5rem;
+    margin-bottom: 10.5rem;
 }
 
-@media (min-width:745px) {
+@media (min-width:786px) {
     .primary-header {
         justify-content: space-between;
         padding-inline: 10.375rem;
         padding-top: 0;
         align-items: center;
+        margin-bottom: 5rem;
     }
 }
 
@@ -204,7 +210,7 @@ select {
     height: 20px;
 }
 
-@media (min-width: 745px) {
+@media (min-width: 786px) {
     .logo {
         position: initial;
     }
@@ -223,9 +229,10 @@ select {
 
 nav {
     margin-top: 2.25rem;
+    z-index: 10000;
 }
 
-@media (min-width: 745px) {
+@media (min-width: 786px) {
     nav {
         margin-top: 0;
     }
@@ -236,6 +243,7 @@ nav {
     list-style: none;
     transform: translateY(-300%);
     transition: transform 500ms ease-in-out;
+    padding-inline-start: 0;
 }
 
 .primary-navigation-toggle {
@@ -253,9 +261,19 @@ nav {
 .primary-navigation a {
     color: hsl( var(--clr-black) );
     text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 2.5rem;
 }
 
-@media (min-width: 745px) {
+.separator {
+    width: 100%;
+    background: #2F2F2F;;
+    opacity: .1;
+}
+
+@media (min-width: 786px) {
     .mobile-nav-toggle {
         display: none;
     }
@@ -267,6 +285,8 @@ nav {
 
     .primary-navigation a {
     color: white;
+    font-size: 13px;
+    line-height: 16px;
     }
 
     .separator {
@@ -279,4 +299,110 @@ nav {
 
 .main {
     background: #FAFAFA;
+}
+
+.heading-section {
+    position: relative;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    margin-inline: 1.5rem;
+    padding-bottom: 2.5rem;
+    border-radius: 8px;
+    top: -3rem;
+}
+
+@media (min-width:786px) {
+    .heading-section {
+    margin-inline: auto;
+    max-width: 730px;
+    }
+}
+
+.mastercraft {
+    margin-inline: auto;
+    position: relative;
+    top: -28px;
+}
+
+.heading-section h1 {
+    font-weight: 700;
+    line-height: 24px;
+    padding-inline: 4rem;
+}
+
+.heading-section p {
+    padding: 1.5rem;
+}
+
+.heading-section div {
+    padding-inline: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-btn {
+    background: hsl( var(--clr-cyan) );
+    color: white;
+    width: 214px;
+    height: 56px;
+    border: none;
+    border-radius: 33.5px;
+    line-height: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline;
+}
+
+.back-btn:hover {
+    background: hsl( var(--clr-darkCyan) );
+}
+
+.back-btn:active {
+    transform: translateY(2px);
+}
+
+.bookmark-btn {
+    display: inline;
+    width: 56px;
+    aspect-ratio: 1;
+    border-radius: 28px;
+    border: none;
+    cursor: pointer;
+    padding-inline: 0;
+}
+
+@media (min-width: 786px) {
+    .bookmark-btn span {
+        position: relative;
+        top: -40px;
+        left: 20px;
+    } 
+}
+
+.bookmark-btn-background {
+    background: #eaf3f2;
+}
+    
+.bookmark-btn:hover {
+   opacity: .6;
+}
+
+.bookmark-btn-svg {
+    filter: invert(36%) sepia(96%) saturate(388%) hue-rotate(127deg) brightness(86%) contrast(88%);
+}
+
+@media (min-width:786px) {
+    .bookmark-btn {
+        width: 214px;
+        height: 56px;
+        border-radius: 33.5px;
+        line-height: 20px;
+        font-weight: 700;
+        background-repeat: no-repeat;
+    }
+}
+
+.bookmark-btn-text {
+    color: hsl( var(--clr-darkCyan) );
 }
