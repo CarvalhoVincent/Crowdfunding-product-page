@@ -62,3 +62,16 @@ function bookmark() {
         bookmarkAria.setAttribute("aria-selected", false);
     }
 }
+
+
+
+//    Modal Section   //
+const modal = document.getElementById("modal");
+
+function displayModal() {
+    modal.style.display = "initial";
+}
+
+function hideModal() {
+    modal.style.display = "none";
+}
