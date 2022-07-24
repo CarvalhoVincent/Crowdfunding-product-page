@@ -487,17 +487,18 @@ nav {
 .pledges {
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    padding: 1.5rem ;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
     margin-top: 35px;
 }
 
-.pledges h4 {
+.pledges h4, .pledges label {
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
 }
 
-.pledge-heading {
+.pledge-heading, .pledge-heading-modal {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
@@ -509,6 +510,15 @@ nav {
         flex-direction: row;
         justify-content: space-between;
     }
+
+    .pledge-heading-modal {
+        flex-direction: row;
+    }
+}
+
+.pledge-heading p {
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .pledge-1, .pledge-2 {
@@ -571,6 +581,14 @@ nav {
     display: none;
 }
 
+@media (min-width: 786px) {
+    .modal {
+        left: 0;
+        right: 0;
+        padding-inline: 3rem;
+    }
+}
+
 .modal img {
     position: relative;
     top: .4rem;
@@ -583,3 +601,154 @@ nav {
     justify-content: space-between;
 }
 
+.labels {
+    position: relative;
+}
+
+.labels input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    margin-right: 2rem;
+}
+
+.labels:hover .checkmark {
+    border-color: hsl( var(--clr-cyan) );
+  }
+
+  .labels:hover {
+    color: hsl( var(--clr-cyan) );
+}
+
+.labels input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+.labels .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: hsl( var(--clr-cyan) );
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    background-color: hsl( var(--clr-cyan) );
+  }
+
+.modalCyan {
+    margin-left: 2.5rem;
+}
+
+@media (min-width: 786px) {
+
+    .pledge-1, .pledge-2, .pledge-3 {
+        position: relative;
+    }
+
+    .nbr-left-modal {
+        position: absolute;
+        top: 10px;
+        right: 28px;
+    }
+}
+
+.number {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 39px;
+}
+
+.pledge-entering {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsla( var(--clr-darkGray) / .3);
+    text-align: center;
+    display: none;
+    flex-direction: column;
+}
+
+.pledge-entering label {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 1rem;
+}
+
+.pledge-entering input {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 33.5px;
+    width: 100px;
+    height: 48px;
+    text-indent: 1rem;
+    padding-left: 2rem;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.currency::before {
+    position: relative;
+    content: "$";
+    left: 30px;
+    color: hsla( var(--clr-darkGray) / .5);
+}
+
+.currency button {
+    width: 115px;
+    height: 48px;
+    background: #3CB3AB;
+    border-radius: 33.5px;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: white;
+}
+
+.currency button:hover {
+    background: hsl( var(--clr-darkCyan) );
+}
+
+.currency button:active {
+    transform: translateY(2px);
+}
+
+@media (min-width: 786px) {
+    .pledge-entering {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    .pledge-entering label {
+        display: inline;
+    }
+
+    .pledge-entering input {
+        margin-bottom: 0;
+    }
+
+    .currency {
+        display: inline;
+    }
+}

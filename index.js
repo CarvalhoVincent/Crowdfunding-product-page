@@ -70,8 +70,15 @@ const modal = document.getElementById("modal");
 
 function displayModal() {
     modal.style.display = "initial";
-}
+};
 
 function hideModal() {
     modal.style.display = "none";
+};
+
+
+function radio1Checked() {
+    const radio1 = document.querySelector(".radio");
+    radio1.setAttribute("checked", true);
+    console.log(radio1);
 }
