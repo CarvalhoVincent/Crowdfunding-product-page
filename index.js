@@ -67,6 +67,16 @@ function bookmark() {
 
 //    Modal Section   //
 const modal = document.getElementById("modal");
+const select0 = document.getElementById("checked0");
+const select1 = document.getElementById("checked1");
+const select2 = document.getElementById("checked2");
+const border0 = document.getElementById("pledge0");
+const border1 = document.getElementById("pledge1");
+const border2 = document.getElementById("pledge2");
+const checkRadio1 = document.getElementById("bambooStand")
+const checkRadio2 = document.getElementById("blackEdition")
+const thanks = document.getElementById("successModal");
+
 
 function displayModal() {
     modal.style.display = "initial";
@@ -77,8 +87,119 @@ function hideModal() {
 };
 
 
-function radio1Checked() {
-    const radio1 = document.querySelector(".radio");
-    radio1.setAttribute("checked", true);
-    console.log(radio1);
+function pledgeSelected(select, select1, select2, border, border1, border2) {
+
+    select.style.display = "flex";
+    select1.style.display = "none";
+    select2.style.display = "none";
+
+    border.style = "border: 2px solid hsl( var(--clr-cyan) );";
+    border1.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+    border2.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+}
+
+function selectBamboo() {
+    displayModal();
+    select1.style.display = "flex";
+    border1.style = "border: 2px solid hsl( var(--clr-cyan) );";
+    checkRadio1.checked = true;
+
+    border0.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+    border2.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+}
+
+function selectBlack() {
+    displayModal();
+    select2.style.display = "flex";
+    border2.style = "border: 2px solid hsl( var(--clr-cyan) );";
+    checkRadio2.checked = true;
+
+    border0.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+    border1.style = "border: 1px solid rgba(0, 0, 0, 0.15);";
+}
+
+//     Thanks     //
+const totalBacked = document.getElementById("total-backed");
+const totalBackers = document.getElementById("total-backers");
+
+
+function displayThanks0() {
+    thanks.style.display = "initial";
+    const data = new FormData();
+    var rewardInput = document.querySelector("#noRewardInput");
+    var field = document.querySelector("#noReward");
+        
+    if (field.checked) {                 
+        data.append(rewardInput.name, rewardInput.value);
+        countBacked = parseInt(rewardInput.value, 10) + parseInt(totalBacked.innerHTML, 10);
+        totalBacked.innerHTML = countBacked;
+    }  
+    return false;
+}
+
+function displayThanks1() {
+    thanks.style.display = "initial";
+    const data1 = new FormData();  
+    var rewardInput1 = document.querySelector("#rewardBamboo");
+    var field1 = document.querySelector("#bambooStand");
+    const bambooLeft = document.getElementById("bamboo-pack-left");
+    const bambooLeft1 = document.getElementById("bamboo-pack-left1");
+
+        
+    if (field1.checked) {                 
+        data1.append(rewardInput1.name, rewardInput1.value);
+        countBacked = parseInt(rewardInput1.value, 10) + parseInt(totalBacked.innerHTML, 10);
+        totalBacked.innerHTML = countBacked;
+
+        countBamboo = bambooLeft.innerHTML;
+        countBamboo--;
+        bambooLeft.innerHTML = countBamboo;
+        countBamboo1 = bambooLeft1.innerHTML;
+        countBamboo1--;
+        bambooLeft1.innerHTML = countBamboo1;
+    }  
+    return false;
+}
+
+function displayThanks2() {
+    thanks.style.display = "initial";
+    const data2 = new FormData();
+    var rewardInput2 = document.querySelector("#rewardBlack");
+    var field2 = document.querySelector("#blackEdition");
+    const blackLeft = document.getElementById("black-pack-left");
+    const blackLeft1 = document.getElementById("black-pack-left1");
+        
+    if (field2.checked) {                 
+        data2.append(rewardInput2.name, rewardInput2.value);
+        countBacked = parseInt(rewardInput2.value, 10) + parseInt(totalBacked.innerHTML, 10);
+        totalBacked.innerHTML = countBacked;
+
+        countBlack = blackLeft.innerHTML;
+        countBlack--;
+        blackLeft.innerHTML = countBlack;
+        countBlack1 = blackLeft1.innerHTML;
+        countBlack1--;
+        blackLeft1.innerHTML = countBlack1;
+    }  
+    return false;
+}
+
+
+//    Store Data     //
+
+function homeUpdate() {
+    
+    count = totalBackers.innerHTML;
+    count++;
+    totalBackers.innerHTML = count;
+
+    var progressBar = document.getElementById("progress-bar");
+    var progressValue = parseInt(totalBacked.innerHTML, 10) / 1000;
+    progressBar.style.width = progressValue + "%";
+    modal.style.display = "none";
+    thanks.style.display = "none";
+
+    if(progressValue > 100) {
+        window.location.reload();
+    };
 }

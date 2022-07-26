@@ -465,7 +465,7 @@ nav {
     background: hsl( var(--clr-cyan) ) !important;
     border-radius: 6px;
     height: 12px;
-    width: 89.914%;
+    width: 57.563%;
 }
 
 /*     About Section  + Pledges  */
@@ -750,5 +750,78 @@ nav {
 
     .currency {
         display: inline;
+    }
+}
+
+
+
+/*     Thnaks modal */
+
+.successModal {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 7.5625rem;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+    box-shadow: 0px 0px 200px 100vh rgba(0,0,0,0.5);
+    font-weight: 600;
+    line-height: 22px;
+    background: white;
+    width: 327px;
+    height: 382px;
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    text-align: center;
+    display: none;
+}
+
+.successModal img {
+    display: inline;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.successModal h5 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.successModal p {
+    margin-bottom: 2rem;
+}
+
+.successModal button {
+    background: #3CB3AB;
+    border-radius: 33.5px;
+    width: 107px;
+    height: 48px;
+    border: none;
+    color: white;
+}
+
+.successModal button:hover {
+    background: hsl( var(--clr-darkCyan) );
+}
+
+.successModal button:active {
+    transform: translateY(2px);
+}
+
+@media (min-width: 715px) {
+    .successModal {
+        padding-inline: 3rem;
+        width: 540px;
+        height: 449px;
+    }
+
+    .successModal img {
+        margin-top: 4rem;
+        width: 90px;
+        height: 90px;
+    }
+
+    .successModal p {
+        line-height: 1.75rem
     }
 }

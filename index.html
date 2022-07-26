@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Frontend Mentor | Crowdfunding product page</title>
 </head>
@@ -43,12 +43,12 @@
         <section class="data-numbers sections">
             <div class="total-backed flex">
                 <div>
-                    <h2 class="fs-900">$89,914</h2>
+                    <h2 class="fs-900">$<span id="total-backed">57563</span></h2>
                     <p class="fs-500 text-gray">of $100,000 backed</p>
                 </div>
                 <div class="numbers-separator"></div>
                 <div>
-                    <h2 class="fs-900">5,007</h2>
+                    <h2 id="total-backers" class="fs-900">5007</h2>
                     <p class="fs-500 text-gray">total backers</p>
                 </div>
                 <div class="numbers-separator"></div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="progress-bar-container">
-                <div class="progress-bar"></div>
+                <div id="progress-bar" class="progress-bar"></div>
             </div>
         </section>
         <section class="about sections">
@@ -73,8 +73,8 @@
                 </div>
                 <p class="text-gray fs-500">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
                 <div class="pledge-select">
-                    <p class="nbr-left fs-500 text-gray flex"><number class="fs-900 text-black">101</number> left</p>
-                    <button class="fs-500">Select Reward</button>
+                    <p class="nbr-left fs-500 text-gray flex"><number id="bamboo-pack-left" class="fs-900 text-black">101</number> left</p>
+                    <button class="fs-500" onclick="selectBamboo()">Select Reward</button>
                 </div>
             </div>
 
@@ -85,8 +85,8 @@
                 </div>
                 <p class="text-gray fs-500">You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                 <div class="pledge-select">
-                    <p class="nbr-left fs-500 text-gray flex"><number class="fs-900 text-black">64</number> left</p>
-                    <button class="fs-500">Select Reward</button>
+                    <p class="nbr-left fs-500 text-gray flex"><number id="black-pack-left" class="fs-900 text-black">64</number> left</p>
+                    <button class="fs-500" onclick="selectBlack()">Select Reward</button>
                 </div>
             </div>
 
@@ -109,28 +109,28 @@
             </div>
             <p class="fs-500 text-gray aboutParagraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world? </p>
 
-            <div class="pledges pledge-noReward">
+            <div id="pledge0" class="pledges pledge-noReward">
                 <div class="pledge-heading-modal">
                     <label class="labels fs-700" for="noReward">
-                        <input class="radio" type="radio" id="noReward" name="selected-pledge" value="1">
+                        <input onclick="pledgeSelected(select0, select1, select2, border0, border1, border2)" class="radio" type="radio" id="noReward" name="selected-pledge" value="1">
                         <span class="checkmark"></span>
                         Pledge with no reward
                     </label>
                 </div>
                 <p class="text-gray fs-500">Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
-                <form class="pledge-entering checked0" aria-hidden="true">
+                <form onsubmit="displayThanks0(); return false" id="checked0" class="pledge-entering checked0" aria-hidden="true">
                     <label class="fs-500 text-gray">Enter your pledge</label>
                     <div class="currency">
-                        <input type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="1" min="1">
+                        <input id="noRewardInput" type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="1" min="1">
                         <button type="submit" class="enterPledge">Continue</button>
                     </div>
                 </form>
             </div>
 
-            <div class="pledges pledge-1">
+            <div id="pledge1" class="pledges pledge-1">
                 <div class="pledge-heading-modal">
                     <label class="labels fs-700" for="bambooStand">
-                        <input class="radio" type="radio" id="bambooStand" name="selected-pledge" value="25">
+                        <input onclick="pledgeSelected(select1, select0, select2, border1, border0, border2)" class="radio" type="radio" id="bambooStand" name="selected-pledge" value="25">
                         <span class="checkmark"></span>
                         Bamboo Stand
                     </label>
@@ -138,21 +138,21 @@
                 </div>
                 <p class="text-gray fs-500">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
                 <div class="pledge-select">
-                    <p class="nbr-left-modal fs-500 text-gray flex"><number class="number fs-900 text-black">101</number> left</p>
+                    <p class="nbr-left-modal fs-500 text-gray flex"><number id="bamboo-pack-left1" class="number fs-900 text-black">101</number> left</p>
                 </div>
-                <form class="pledge-entering checked1" aria-hidden="true">
+                <form onsubmit="displayThanks1(); return false" id="checked1" class="pledge-entering checked1" aria-hidden="true">
                     <label class="fs-500 text-gray">Enter your pledge</label>
                     <div class="currency">
-                        <input type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="25" min="25">
+                        <input id="rewardBamboo" type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="25" min="25">
                         <button type="submit" class="enterPledge">Continue</button>
                     </div>
                 </form>
             </div>
 
-            <div class="pledges pledge-2">
+            <div id="pledge2" class="pledges pledge-2">
                 <div class="pledge-heading-modal">
                     <label class="labels fs-700" for="blackEdition">
-                        <input class="radio" type="radio" id="blackEdition" name="selected-pledge" value="75">
+                        <input onclick="pledgeSelected(select2, select0, select1, border2, border0, border1)" class="radio" type="radio" id="blackEdition" name="selected-pledge" value="75">
                         <span class="checkmark"></span>
                         Black Edition Stand
                     </label>
@@ -160,12 +160,12 @@
                 </div>
                 <p class="text-gray fs-500">You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                 <div class="pledge-select">
-                    <p class="nbr-left-modal fs-500 text-gray flex"><number class="number fs-900 text-black">64</number> left</p>
+                    <p class="nbr-left-modal fs-500 text-gray flex"><number id="black-pack-left1" class="number fs-900 text-black">64</number> left</p>
                 </div>
-                <form class="pledge-entering checked2" aria-hidden="true">
+                <form onsubmit="displayThanks2(); return false" id="checked2" class="pledge-entering checked2" aria-hidden="true">
                     <label class="fs-500 text-gray">Enter your pledge</label>
                     <div class="currency">
-                        <input type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="75" min="75">
+                        <input id="rewardBlack" type="number" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="75" min="75">
                         <button type="submit" class="enterPledge">Continue</button>
                     </div>
                 </form>
@@ -187,17 +187,13 @@
             </div>
         </section>
 
-            <!-- Success modal start -->
-
-            Thanks for your support!
-            Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-            an email once our campaign is completed.
-            Got it!
-
-            <!-- Success modal end -->
-
-        
-
+        <section id="successModal" class="successModal">
+            <img src="./images/icon-check.svg" alt="check icon">
+            <h5 class="fs-800">Thanks for your support!</h5>
+            <p class="fs-500 text-gray">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+            an email once our campaign is completed.</p>
+            <button onclick="homeUpdate()">Got it!</button>
+        </section>
     </main>
     <footer class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
